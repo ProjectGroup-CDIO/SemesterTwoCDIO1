@@ -4,6 +4,8 @@ import java.util.List;
 
 public class OperatoerDAO implements IOperatoerDAO {
 
+	IOperatoerDTO e = new OperatoerDTO();
+	
 	@Override
 	public OperatoerDTO getOperatoer(int oprId) throws DALException {
 		// TODO Auto-generated method stub
