@@ -1,5 +1,7 @@
 package Data;
 
+import java.util.List;
+
 public interface IOperatoerDAO {
 	OperatoerDTO getOperatoer(int oprId) throws DALException;
 	List<OperatoerDTO> getOperatoerList() throws DALException;
