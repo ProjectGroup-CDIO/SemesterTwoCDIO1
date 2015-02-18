@@ -1,7 +1,5 @@
 package Data;
 
-import java.util.List;
-
 public class OperatoerDTO implements IOperatoerDTO{
 	
 	
