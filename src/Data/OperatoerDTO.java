@@ -2,7 +2,7 @@ package Data;
 
 import java.util.List;
 
-public class OperatoerDTO implements IOperatoerDAO{
+public class OperatoerDTO implements IOperatoerDTO{
 	
 	
 	private int oprId;                     
@@ -38,27 +38,5 @@ public class OperatoerDTO implements IOperatoerDAO{
 	public String getCpr() {
 		return cpr;
 	}
-	@Override
-	public OperatoerDTO getOperatoer(int oprId) throws DALException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public List<OperatoerDTO> getOperatoerList() throws DALException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public void createOperatoer(OperatoerDTO opr) throws DALException {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void updateOperatoer(OperatoerDTO opr) throws DALException {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	
 
 }
