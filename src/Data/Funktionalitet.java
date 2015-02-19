@@ -1,8 +1,8 @@
 package Data;
 
-public class Funktionalitet implements IFunktionalitet {
+public class Funktionalitet {
 	
-	IOperatoerDAO OPdata = new OperatoerDAO();
+	IOperatoerDAO OPdata = new OperatoerDTO();
 	
 	public void createOperator(OperatoerDTO opr){
 		
@@ -10,10 +10,7 @@ public class Funktionalitet implements IFunktionalitet {
 	public void deleteOperator(OperatoerDTO opr){
 	
 	}
-	public void UpdateOperator(OperatoerDTO opr){
-		
-	}
-	public void ShowOperators(){
+	public void UpdateOperator(){
 		
 	}
 
