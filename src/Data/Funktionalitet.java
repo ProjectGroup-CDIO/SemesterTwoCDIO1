@@ -2,7 +2,7 @@ package Data;
 
 public class Funktionalitet {
 	
-	IOperatoerDAO OPdata = new OperatoerDTO();
+	IOperatoerDAO OPdata = new OperatoerDAO();
 	
 	public void createOperator(OperatoerDTO opr){
 		
