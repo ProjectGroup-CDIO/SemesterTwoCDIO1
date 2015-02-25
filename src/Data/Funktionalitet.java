@@ -98,7 +98,10 @@ public class Funktionalitet implements IFunktionalitet {
 	public OperatoerDTO getOperatoer(int oprId) throws DALException {
 		if(isAdmin()){
 			return	OPdata.getOperatoer(oprId);
+		}else{
+			System.out.println("Faliue to getOperatoer - not admin");
 		}
+		System.out.println("Get operatoer from id: " + oprId + "failed");
 		return null;
 
 	}
