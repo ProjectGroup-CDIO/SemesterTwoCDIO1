@@ -5,14 +5,17 @@ public class Funktionalitet {
 	IOperatoerDAO OPdata = new OperatoerDAO();
 	
 	
-	public void createOperator(OperatoerDTO opr){
+	public void createOperatoer(){
 		
 	}
-	public void deleteOperator(OperatoerDTO opr){
+	public void deleteOperatoer(){
 	
 	}
-	public void UpdateOperator(){
+	public void UpdateOperatoer(){
 		
+	}
+	public void getOperatoer(){
+	
 	}
 
 }

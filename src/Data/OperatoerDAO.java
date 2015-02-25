@@ -7,7 +7,7 @@ import java.util.List;
 
 public class OperatoerDAO implements IOperatoerDAO {
 
-	IOperatoerDTO e = new OperatoerDTO();
+	IOperatoerDTO e = new OperatoerDTO(0, null, null, null, null);
 	
 	
 
@@ -46,10 +46,6 @@ public class OperatoerDAO implements IOperatoerDAO {
 
 	}
 
-	
-	
-	
-	
 	
 	@Override
 	public OperatoerDTO getOperatoer(int oprId) throws DALException {
