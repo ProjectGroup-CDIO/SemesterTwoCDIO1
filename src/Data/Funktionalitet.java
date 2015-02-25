@@ -82,8 +82,12 @@ public class Funktionalitet implements IFunktionalitet {
 	@Override
 	public List<OperatoerDTO> ShowOperators() throws DALException {
 		if(isAdmin()) {
+			System.out.println();
 			return OPdata.getOperatoerList();	
+		}else{
+		System.out.println("Faliure to show the list.");	
 		}
+		
 		return null;
 
 	}
