@@ -10,11 +10,38 @@ public class OperatoerDTO implements IOperatoerDTO{
 	String ini;                 
 	String cpr;                 
 	String password;
+	
+	
+	public OperatoerDTO(int oprId, String oprNavn, String ini, String cpr, String password){
+		this.oprId = oprId;
+		this.oprNavn = oprNavn;
+		this.ini = ini;
+		this.cpr = cpr;
+		this.password = password;
+	
+	}
+	
+	public int getOprId() {
+		return oprId;
+	}
+	public String getOprNavn() {
+		return oprNavn;
+	}
+	public String getIni() {
+		return ini;
+	}
+	public String getCpr() {
+		return cpr;
+	}
+	public String getPassword() {
+		return password;
+	}
 
 }
 
 
-//
+
+
 //	public int getOprId(String cpr)throws DataException {
 //		int i = 0;
 //		while(true){

@@ -4,6 +4,7 @@ public class Funktionalitet {
 	
 	IOperatoerDAO OPdata = new OperatoerDAO();
 	
+	
 	public void createOperator(OperatoerDTO opr){
 		
 	}
