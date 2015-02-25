@@ -53,8 +53,12 @@ public class OperatoerDAO implements IOperatoerDAO {
 	
 	@Override
 	public OperatoerDTO getOperatoer(int oprId) throws DALException {
-		// TODO Auto-generated method stub
-		return null;
+		for(int i = 0; i < DATAList.size(); i++){
+			if(DATAList.get(i).oprId == oprId) {
+				return new OperatoerDTO(DATAList.get(i).oprId, DATAList.get(i).oprNavn,
+						DATAList.get(i).ini, DATAList.get(i).cpr, DATAList.get(i).password);
+			}
+		}
 	}
 
 	@Override
