@@ -17,6 +17,13 @@ public class Test {
 		}
 		
 		
+		try {
+			System.out.println(a.ShowOperators());
+		} catch (DALException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 }

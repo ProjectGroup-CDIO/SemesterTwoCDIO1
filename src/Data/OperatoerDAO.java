@@ -70,14 +70,21 @@ public class OperatoerDAO implements IOperatoerDAO {
 
 	@Override
 	public void createOperatoer(OperatoerDTO opr) throws DALException {
-		// TODO Auto-generated method stub
-
+		DATAList.add(new Operatoer(opr.oprId,opr.oprNavn,opr.ini,opr.cpr,opr.password));
+		
 	}
-
+	/*
+	 * (non-Javadoc)
+	 * @see Data.IOperatoerDAO#updateOperatoer(Data.OperatoerDTO)
+	 *You can update everything except the ID, If you wish to update ID
+	 *You have to delete the previous user with the ID and create him
+	 *again.
+	 */
+	
 	@Override
 	public void updateOperatoer(OperatoerDTO opr) throws DALException {
-		// TODO Auto-generated method stub
-
+		
+		
 	}
 
 }

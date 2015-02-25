@@ -1,5 +1,7 @@
 package Data;
 
+import java.util.List;
+
 import Data.IOperatoerDAO.DALException;
 
 public class Funktionalitet implements IFunktionalitet {
@@ -29,8 +31,8 @@ public class Funktionalitet implements IFunktionalitet {
 		
 	}
 	@Override
-	public void ShowOperators() throws DALException {
-		// TODO Auto-generated method stub
+	public List<OperatoerDTO> ShowOperators() throws DALException {
+		return OPdata.getOperatoerList();
 		
 	}
 	@Override
