@@ -55,6 +55,7 @@ public class OperatoerDAO implements IOperatoerDAO {
 						DATAList.get(i).ini, DATAList.get(i).cpr, DATAList.get(i).password);
 			}
 		}
+		return null;
 	}
 
 	@Override
