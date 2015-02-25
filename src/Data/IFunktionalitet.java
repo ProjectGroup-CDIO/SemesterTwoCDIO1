@@ -7,6 +7,7 @@ public interface IFunktionalitet {
 
 	void createOperator(OperatoerDTO opr)throws DALException;
 	void deleteOperator(OperatoerDTO opr)throws DALException;
+	OperatoerDTO getOperatoer(int oprId)throws DALException;
 	public void UpdateOperator(OperatoerDTO opr)throws DALException;
 	public void ShowOperators()throws DALException;
 	

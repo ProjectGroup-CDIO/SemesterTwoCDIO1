@@ -33,5 +33,11 @@ public class Funktionalitet implements IFunktionalitet {
 		// TODO Auto-generated method stub
 		
 	}
+	@Override
+	public OperatoerDTO getOperatoer(int oprId) throws DALException {
+		
+	return	OPdata.getOperatoer(oprId);
+	
+	}
 
 }
