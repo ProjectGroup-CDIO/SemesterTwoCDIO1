@@ -33,11 +33,11 @@ public class OperatoerDAO implements IOperatoerDAO {
 		DATAList = new ArrayList<Operatoer>();
 
 		// ADD POEPLE
-
-		DATAList.add(new Operatoer(10,"Lars Larsen","LaLa","123456-7890","123"));
-		DATAList.add(new Operatoer(11,"Helmut huthut","HeHu","012345-6789","123"));
-		DATAList.add(new Operatoer(12,"Peder Person","PePe","111111-2222","123"));
-		DATAList.add(new Operatoer(13,"Test Testason","Tete","222222-3333","123"));
+		DATAList.add(new Operatoer(10, "Sysadmin",null,null,"0234it!"));
+		DATAList.add(new Operatoer(11,"Lars Larsen","LaLa","123456-7890","123"));
+		DATAList.add(new Operatoer(12,"Helmut huthut","HeHu","012345-6789","123"));
+		DATAList.add(new Operatoer(13,"Peder Person","PePe","111111-2222","123"));
+		DATAList.add(new Operatoer(14,"Test Testason","Tete","222222-3333","123"));
 
 
 	}

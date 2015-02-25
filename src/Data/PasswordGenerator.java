@@ -14,6 +14,7 @@ public class PasswordGenerator {
 	char[] mycharArray = new char[6];
 	
 	//places the values in an array
+	//Could have been made with loops, but it would take more codespace
 	mycharArray[0]= values1[rand.nextInt(values1.length)];
 	mycharArray[1]= values1[rand.nextInt(values1.length)];
 	mycharArray[2]= values1[rand.nextInt(values1.length)];
@@ -21,7 +22,7 @@ public class PasswordGenerator {
 	mycharArray[4]= values3[rand.nextInt(values3.length)];
 	mycharArray[5]= values4[rand.nextInt(values4.length)];
 	
-	//Bogosort the array
+	//This part scrambles the position of the values with bogosort
 	for (int i = 0; i < mycharArray.length; i++){  
 	    int randomPosition = rand.nextInt(mycharArray.length);  
 	
