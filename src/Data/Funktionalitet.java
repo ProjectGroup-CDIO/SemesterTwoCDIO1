@@ -35,12 +35,44 @@ public class Funktionalitet implements IFunktionalitet {
 		if(isAdmin()) {
 		OPdata.deleteOperatoer(opr);
 		}
+		/*
+		 * Check for if the opr has been deleted, we do this by expecting 
+		 * a null from the getOperatoer method, if no user is found a null
+		 * is returned.
+		 */
+		if(OPdata.getOperatoer(opr.oprId) == null){
+			System.out.println("Succes - opr has been deleted");
+		}else{
+			System.out.println("Faliure - opr was not deleted ");
+		}
+	
 
 	}
 	@Override
 	public void updateOperator(OperatoerDTO opr) throws DALException {
 		if(isAdmin()) {
 		OPdata.updateOperatoer(opr);
+		}
+		/*
+		 * Check if the operatoer has been updated, since the opr
+		 * could update any part of the opr in the datalayer, we check
+		 * if all parts of the new opr matches with everything from a opr 
+		 * in the database(array list)
+		 */
+		if(OPdata.getOperatoer(opr.oprId).oprId == opr.oprId &&
+				OPdata.getOperatoer(opr.oprId).cpr == opr.cpr &&
+				OPdata.getOperatoer(opr.oprId).ini == opr.ini &&
+				OPdata.getOperatoer(opr.oprId).oprNavn == opr.oprNavn &&
+				OPdata.getOperatoer(opr.oprId).password == opr.password){
+			System.out.println("Succes - Everything matches accordingly");
+		}else{
+			System.out.println("Faliure - Not everything or nothing matched");
+			System.out.println("You expected:" );
+			System.out.println(OPdata.getOperatoer(opr.oprId).cpr + " to be "+ opr.cpr );
+			System.out.println(OPdata.getOperatoer(opr.oprId).ini + " to be "+ opr.ini );
+			System.out.println(OPdata.getOperatoer(opr.oprId).oprId + " to be "+ opr.oprId);
+			System.out.println(OPdata.getOperatoer(opr.oprId).oprNavn + " to be "+ opr.oprNavn );
+			System.out.println(OPdata.getOperatoer(opr.oprId).cpr + " to be "+ opr.cpr );
 		}
 
 	}
