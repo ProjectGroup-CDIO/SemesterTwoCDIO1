@@ -1,17 +1,36 @@
 package Data;
 
-public class Funktionalitet {
+import Data.IOperatoerDAO.DALException;
+
+public class Funktionalitet implements IFunktionalitet {
 	
 	IOperatoerDAO OPdata = new OperatoerDAO();
 	
 	
-	public void createOperator(OperatoerDTO opr){
+
+	@Override
+	public void createOperator(OperatoerDTO opr) throws DALException {
+		try {
+			System.out.println(OPdata.getOperatoer(12));
+		} catch (DALException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
-	public void deleteOperator(OperatoerDTO opr){
-	
+	@Override
+	public void deleteOperator(OperatoerDTO opr) throws DALException {
+		// TODO Auto-generated method stub
+		
 	}
-	public void UpdateOperator(){
+	@Override
+	public void UpdateOperator(OperatoerDTO opr) throws DALException {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void ShowOperators() throws DALException {
+		// TODO Auto-generated method stub
 		
 	}
 

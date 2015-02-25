@@ -47,10 +47,6 @@ public class OperatoerDAO implements IOperatoerDAO {
 	}
 
 	
-	
-	
-	
-	
 	@Override
 	public OperatoerDTO getOperatoer(int oprId) throws DALException {
 		for(int i = 0; i < DATAList.size(); i++){
@@ -59,6 +55,7 @@ public class OperatoerDAO implements IOperatoerDAO {
 						DATAList.get(i).ini, DATAList.get(i).cpr, DATAList.get(i).password);
 			}
 		}
+		return null;
 	}
 
 	@Override
