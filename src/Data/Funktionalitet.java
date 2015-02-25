@@ -11,6 +11,7 @@ public class Funktionalitet implements IFunktionalitet {
 	int Vaegt;
 	int Tara;
 	int Brutto = Vaegt+Tara;
+	public boolean adminLogin;
 
 
 	@Override
@@ -33,6 +34,17 @@ public class Funktionalitet implements IFunktionalitet {
 			System.out.println("Faliure - found no opr that matched with a opr in the list.");
 		}
 	}
+	
+	public void adminLogin(String password){
+		if("1234".equals(password)){
+			adminLogin = true;
+			System.out.println("Admin activated.");
+		} else{
+			adminLogin = false;
+			System.out.println("Admin deactivated.");
+		}
+	}
+	
 	@Override
 	public void deleteOperator(OperatoerDTO opr) throws DALException {
 		if(isAdmin()) {
