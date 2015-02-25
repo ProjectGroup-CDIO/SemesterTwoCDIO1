@@ -5,7 +5,7 @@ import java.util.List;
 import Data.IOperatoerDAO.DALException;
 
 public class Funktionalitet implements IFunktionalitet {
-	
+
 	IOperatoerDAO OPdata = new OperatoerDAO();
 	boolean ADMIN = false;
 	int Vaegt;
@@ -17,16 +17,16 @@ public class Funktionalitet implements IFunktionalitet {
 	public void createOperator(OperatoerDTO opr) throws DALException {
 		try {
 			OPdata.createOperatoer(opr);
-			
+
 		} catch (DALException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		/*Check if the operator has been created correctly
-		*Checks if the given Operatoer has been created by checking 
-		*if the given opr matches with an excisting opr in the list of
-		*operatoers.
-		*/ 
+		 *Checks if the given Operatoer has been created by checking 
+		 *if the given opr matches with an excisting opr in the list of
+		 *operatoers.
+		 */ 
 		if(OPdata.getOperatoer(opr.oprId) == opr){
 			System.out.println("Succes - new opr has been created.");
 		}else{
@@ -36,7 +36,7 @@ public class Funktionalitet implements IFunktionalitet {
 	@Override
 	public void deleteOperator(OperatoerDTO opr) throws DALException {
 		if(isAdmin()) {
-		OPdata.deleteOperatoer(opr);
+			OPdata.deleteOperatoer(opr);
 		}
 		/*
 		 * Check for if the opr has been deleted, we do this by expecting 
@@ -48,34 +48,37 @@ public class Funktionalitet implements IFunktionalitet {
 		}else{
 			System.out.println("Faliure - opr was not deleted ");
 		}
-	
+
 
 	}
 	@Override
 	public void updateOperator(OperatoerDTO opr) throws DALException {
 		if(isAdmin()) {
-		OPdata.updateOperatoer(opr);
-		}
-		/*
-		 * Check if the operatoer has been updated, since the opr
-		 * could update any part of the opr in the datalayer, we check
-		 * if all parts of the new opr matches with everything from a opr 
-		 * in the database(array list)
-		 */
-		if(OPdata.getOperatoer(opr.oprId).oprId == opr.oprId &&
-				OPdata.getOperatoer(opr.oprId).cpr == opr.cpr &&
-				OPdata.getOperatoer(opr.oprId).ini == opr.ini &&
-				OPdata.getOperatoer(opr.oprId).oprNavn == opr.oprNavn &&
-				OPdata.getOperatoer(opr.oprId).password == opr.password){
-			System.out.println("Succes - Everything matches accordingly");
+			OPdata.updateOperatoer(opr);
+
+			/*
+			 * Check if the operatoer has been updated, since the opr
+			 * could update any part of the opr in the datalayer, we check
+			 * if all parts of the new opr matches with everything from a opr 
+			 * in the database(array list)
+			 */
+			if(OPdata.getOperatoer(opr.oprId).oprId == opr.oprId &&
+					OPdata.getOperatoer(opr.oprId).cpr == opr.cpr &&
+					OPdata.getOperatoer(opr.oprId).ini == opr.ini &&
+					OPdata.getOperatoer(opr.oprId).oprNavn == opr.oprNavn &&
+					OPdata.getOperatoer(opr.oprId).password == opr.password){
+				System.out.println("Succes - Everything matches accordingly");
+			}else{
+				System.out.println("Faliure - Not everything or nothing matched");
+				System.out.println("You expected:" );
+				System.out.println(OPdata.getOperatoer(opr.oprId).cpr + " to be "+ opr.cpr );
+				System.out.println(OPdata.getOperatoer(opr.oprId).ini + " to be "+ opr.ini );
+				System.out.println(OPdata.getOperatoer(opr.oprId).oprId + " to be "+ opr.oprId);
+				System.out.println(OPdata.getOperatoer(opr.oprId).oprNavn + " to be "+ opr.oprNavn );
+				System.out.println(OPdata.getOperatoer(opr.oprId).cpr + " to be "+ opr.cpr );
+			}
 		}else{
-			System.out.println("Faliure - Not everything or nothing matched");
-			System.out.println("You expected:" );
-			System.out.println(OPdata.getOperatoer(opr.oprId).cpr + " to be "+ opr.cpr );
-			System.out.println(OPdata.getOperatoer(opr.oprId).ini + " to be "+ opr.ini );
-			System.out.println(OPdata.getOperatoer(opr.oprId).oprId + " to be "+ opr.oprId);
-			System.out.println(OPdata.getOperatoer(opr.oprId).oprNavn + " to be "+ opr.oprNavn );
-			System.out.println(OPdata.getOperatoer(opr.oprId).cpr + " to be "+ opr.cpr );
+			System.out.println("Faliure to show the list. - not admin");
 		}
 
 	}
@@ -85,9 +88,9 @@ public class Funktionalitet implements IFunktionalitet {
 			System.out.println();
 			return OPdata.getOperatoerList();	
 		}else{
-		System.out.println("Faliure to show the list.");	
+			System.out.println("Faliure to show the list. - not admin");	
 		}
-		
+
 		return null;
 
 	}
@@ -97,12 +100,12 @@ public class Funktionalitet implements IFunktionalitet {
 			return	OPdata.getOperatoer(oprId);
 		}
 		return null;
-		
+
 	}
 	public boolean isAdmin(){
-		
+
 		ADMIN = true;
-		
+
 		return ADMIN;
 	}
 }
