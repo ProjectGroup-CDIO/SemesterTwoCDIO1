@@ -8,8 +8,8 @@ import java.util.List;
 public class OperatoerDAO implements IOperatoerDAO {
 
 	IOperatoerDTO e = new OperatoerDTO(0, null, null, null, null);
-	
-	
+
+
 
 	private class Operatoer{
 		int oprId;                     
@@ -29,10 +29,10 @@ public class OperatoerDAO implements IOperatoerDAO {
 		}
 	}
 
-	
-	
+
+
 	private ArrayList<Operatoer> DATAList;
- 	public OperatoerDAO(){
+	public OperatoerDAO(){
 
 		DATAList = new ArrayList<Operatoer>();
 
@@ -46,7 +46,7 @@ public class OperatoerDAO implements IOperatoerDAO {
 
 	}
 
-	
+
 	@Override
 	public OperatoerDTO getOperatoer(int oprId) throws DALException {
 		for(int i = 0; i < DATAList.size(); i++){
@@ -63,7 +63,7 @@ public class OperatoerDAO implements IOperatoerDAO {
 		List<OperatoerDTO> List = new ArrayList<OperatoerDTO>();
 		for(int i = 0; i < DATAList.size(); i++) {
 			List.add(i, new OperatoerDTO(DATAList.get(i).oprId, DATAList.get(i).oprNavn,
-						DATAList.get(i).ini, DATAList.get(i).cpr, DATAList.get(i).password));
+					DATAList.get(i).ini, DATAList.get(i).cpr, DATAList.get(i).password));
 		}
 		return List;
 	}
@@ -71,7 +71,7 @@ public class OperatoerDAO implements IOperatoerDAO {
 	@Override
 	public void createOperatoer(OperatoerDTO opr) throws DALException {
 		DATAList.add(new Operatoer(opr.oprId,opr.oprNavn,opr.ini,opr.cpr,opr.password));
-		
+
 	}
 	/*
 	 * (non-Javadoc)
@@ -80,11 +80,19 @@ public class OperatoerDAO implements IOperatoerDAO {
 	 *You have to delete the previous user with the ID and create him
 	 *again.
 	 */
-	
+
 	@Override
 	public void updateOperatoer(OperatoerDTO opr) throws DALException {
-		
-		
+		for(int i = 0; i< DATAList.size();i++){
+			if(opr.oprId == DATAList.get(i).oprId){
+				DATAList.get(i).ini = opr.ini;
+				DATAList.get(i).oprNavn = opr.oprNavn;
+				DATAList.get(i).password = opr.password;
+				DATAList.get(i).cpr = opr.cpr;
+			}
+		}
+
+
 	}
 
 }
