@@ -7,10 +7,6 @@ import java.util.List;
 
 public class OperatoerDAO implements IOperatoerDAO {
 
-	IOperatoerDTO e = new OperatoerDTO(0, null, null, null, null);
-
-
-
 	private class Operatoer{
 		int oprId;                     
 		String oprNavn;                
