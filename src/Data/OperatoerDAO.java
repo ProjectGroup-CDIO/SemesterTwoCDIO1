@@ -60,8 +60,12 @@ public class OperatoerDAO implements IOperatoerDAO {
 
 	@Override
 	public List<OperatoerDTO> getOperatoerList() throws DALException {
-		// TODO Auto-generated method stub
-		return null;
+		List<OperatoerDTO> List = new ArrayList<OperatoerDTO>();
+		for(int i = 0; i < DATAList.size(); i++) {
+			List.add(i, new OperatoerDTO(DATAList.get(i).oprId, DATAList.get(i).oprNavn,
+						DATAList.get(i).ini, DATAList.get(i).cpr, DATAList.get(i).password));
+		}
+		return List;
 	}
 
 	@Override
