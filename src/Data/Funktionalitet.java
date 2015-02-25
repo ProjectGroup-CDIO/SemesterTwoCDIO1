@@ -105,6 +105,8 @@ public class Funktionalitet implements IFunktionalitet {
 		return null;
 
 	}
+	
+	//Just something initially made - does not have to look like this.
 	public boolean isAdmin(){
 
 		ADMIN = true;
