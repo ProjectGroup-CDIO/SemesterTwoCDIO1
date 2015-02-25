@@ -5,9 +5,12 @@ import java.util.List;
 import Data.IOperatoerDAO.DALException;
 
 public class Funktionalitet implements IFunktionalitet {
-
+	
 	IOperatoerDAO OPdata = new OperatoerDAO();
 	boolean ADMIN = false;
+	int Vaegt;
+	int Tara;
+	int Brutto = Vaegt+Tara;
 
 
 	@Override
