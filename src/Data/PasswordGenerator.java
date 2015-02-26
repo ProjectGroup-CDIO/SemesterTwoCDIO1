@@ -36,6 +36,6 @@ public class PasswordGenerator {
 		//print the randomly sorted array
 			System.out.println(mycharArray);
 	}
-	}
+}
 
 
