@@ -2,7 +2,7 @@ package Data;
 import java.io.ObjectInputStream.GetField;
 
 import Data.IOperatoerDAO.DALException;
-
+import java.util.Scanner;
 /*
  * This is the runable applikation
  * From here we will build up the applikation so that the entire project works
@@ -16,7 +16,7 @@ public class Applikation extends Funktionalitet  {
 		// TODO Auto-generated method stub
 
 		IFunktionalitet funktion = new Funktionalitet();
-		java.util.Scanner tastatur = new java.util.Scanner(System.in);
+		Scanner tastatur = new java.util.Scanner(System.in);
 
 
 		System.out.println("______________________________________");
