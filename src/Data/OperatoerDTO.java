@@ -3,7 +3,7 @@ package Data;
 
 
 
-public class OperatoerDTO implements IOperatoerDTO{
+public class OperatoerDTO{
 
 	int oprId;                     
 	String oprNavn;                
