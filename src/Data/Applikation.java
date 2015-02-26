@@ -151,17 +151,22 @@ public class Applikation extends Funktionalitet  {
 			String valg2 = tastatur.nextLine();
 			funktion.deleteOperator(funktion.getOperatoer(Integer.parseInt(valg2)));
 		case "3":
-			System.out.println("Please enter the oprID for the operator you want to update.");
+			System.out.println("Please enter the oprID for the operator you want to update. NULL is interpreted as do not change(remember it has to be capital!)");
 			String oprId = tastatur.nextLine();
+			System.out.println("Please enter the Name for the operator you want to update.NULL is interpreted as do not change(remember it has to be capital!)");
 			String name = tastatur.nextLine();
+			System.out.println("Please enter the ini for the operator you want to update.NULL is interpreted as do not change(remember it has to be capital!)");
 			String ini = tastatur.nextLine();
+			System.out.println("Please enter the cpr for the operator you want to update.NULL is interpreted as do not change(remember it has to be capital!)");
 			String cpr = tastatur.nextLine();
+			System.out.println("Please enter the password for the operator you want to update.NULL is interpreted as do not change(remember it has to be capital!)");
 			String pass = tastatur.nextLine();
 			
 			try{
 			funktion.updateOperator(new OperatoerDTO(Integer.parseInt(oprId), name, ini, cpr, pass)); 
 			}catch(NumberFormatException e){
 				System.out.println("You wrote a non valid integer - please write one between 11 - 99");
+				keyboardOutput("3");
 			}
 			
 			
