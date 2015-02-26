@@ -7,7 +7,7 @@ import Data.IOperatoerDAO.DALException;
 public class Funktionalitet implements IFunktionalitet {
 
 	IOperatoerDAO OPdata = new OperatoerDAO();
-	UserCommandLog UpdateData = new UserCommandLog();
+	
 	
 	boolean ADMIN = false;
 	int Vaegt;
