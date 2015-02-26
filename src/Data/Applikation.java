@@ -2,6 +2,7 @@ package Data;
 import java.io.ObjectInputStream.GetField;
 
 import Data.IOperatoerDAO.DALException;
+
 import java.util.Scanner;
 /*
  * This is the runable applikation
@@ -17,7 +18,7 @@ public class Applikation extends Funktionalitet  {
 
 		IFunktionalitet funktion = new Funktionalitet();
 		Scanner tastatur = new java.util.Scanner(System.in);
-
+		UserCommandLog UpdateData = new UserCommandLog();
 
 		System.out.println("______________________________________");
 		System.out.println();
@@ -89,7 +90,7 @@ public class Applikation extends Funktionalitet  {
 						System.out.println(funktion.getOperatoer(ID).password);
 					}
 				}
-					else if(valg.equals("5")){
+				else if(valg.equals("5")){
 					System.out.println("Goodbye admin.");
 				}
 
