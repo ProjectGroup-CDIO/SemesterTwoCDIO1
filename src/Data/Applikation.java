@@ -40,7 +40,7 @@ public class Applikation extends Funktionalitet  {
 				System.out.println("Acces Granted");
 				System.out.println("Mulgiheder: 1,2,3,4,5");
 				System.out.println("skrive 1,2,3,4 eller 5");
-				String valg  = tastatur.nextLine();
+				
 				
 				if(Integer.parseInt(BrugerId) < 11){
 					funktion.isAdmin(true);
@@ -48,9 +48,10 @@ public class Applikation extends Funktionalitet  {
 				}else{
 					funktion.isAdmin(false);
 				}
-				
+				String valg  = tastatur.nextLine();
 				if(funktion.adminState()){
 				//logged in as admin.
+					
 					System.out.println("________________________________________");
 					System.out.println(" Welcome back, admin! What do you want to do");
 					System.out.println("List of operators, press 1");
