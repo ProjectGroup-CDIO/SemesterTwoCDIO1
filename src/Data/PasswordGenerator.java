@@ -4,7 +4,7 @@ import java.util.Random;
 import Data.IOperatoerDAO.DALException;
 
 public class PasswordGenerator extends Funktionalitet {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws DALException {
 		
 	Funktionalitet funktion = new Funktionalitet();
 	java.util.Scanner tastatur = new java.util.Scanner(System.in);
@@ -44,6 +44,8 @@ public class PasswordGenerator extends Funktionalitet {
 		System.out.println("Pick admin or operator");
 		System.out.println("For admin, enter 10");
 		System.out.println("For operator, enter 11");
+		System.out.println();
+		System.out.println("Exit program, enter 20");
 		int valg = tastatur.nextInt();	
 		tastatur.nextLine();
 		
@@ -59,25 +61,35 @@ public class PasswordGenerator extends Funktionalitet {
 				System.out.println("List of operators, press 1");
 				System.out.println("Delete operator(s), press 2");
 				System.out.println("Update operator, press 3");
+				System.out.println();
+				System.out.println("Logout, press 4");
+//				int valg2 = tastatur.nextInt();
+//				tastatur.nextLine();
+			}
+				else if(password != 1234){
+					funktion.adminLogin = false;
+					System.out.println("Password was wrong!");
+				}
 				
-				int valg2 = tastatur.nextInt();
-				tastatur.nextLine();
-				
-				if(valg2 == 1){
-						System.out.println(funktion.ShowOperators());
+				if(valg == 1){
+						System.out.println(funktion.OPdata.getOperatoerList());
 				}
 				else if(valg == 2){
-						
+						//Implement deletion of operators
+				}
+				else if(valg == 3){
+						//Implement update operator(s)
+				}
+				else if(valg == 4){
+					funktion.adminLogin = false;
+					System.exit(0);
 				}
 			}
-			
-		break;
 		}
 
 	
 	
 		}
 	}
-}
 
 
