@@ -7,15 +7,17 @@ import Data.IOperatoerDAO.DALException;
 public class Funktionalitet implements IFunktionalitet {
 
 	IOperatoerDAO OPdata = new OperatoerDAO();
+	UserCommandLog UpdateData = new UserCommandLog();
+	
 	boolean ADMIN = false;
 	int Vaegt;
 	int Tara;
 	int Brutto = Vaegt+Tara;
 	public boolean adminLogin;
-
-
+	
 	@Override
 	public void createOperator(OperatoerDTO opr) throws DALException {
+		if(isAdmin()) {
 		try {
 			OPdata.createOperatoer(opr);
 
@@ -28,6 +30,9 @@ public class Funktionalitet implements IFunktionalitet {
 		 *if the given opr matches with an excisting opr in the list of
 		 *operatoers.
 		 */ 
+		}else{
+			System.out.println("Faliure to create user. - not admin");
+		}
 		if(OPdata.getOperatoer(opr.oprId) == opr){
 			System.out.println("Succes - new opr has been created.");
 		}else{
@@ -36,13 +41,7 @@ public class Funktionalitet implements IFunktionalitet {
 	}
 	
 	public void adminLogin(String password){
-		if("1234".equals(password)){
-			adminLogin = true;
-			System.out.println("Admin activated.");
-		} else{
-			adminLogin = false;
-			System.out.println("Admin deactivated.");
-		}
+		
 	}
 	
 	@Override
