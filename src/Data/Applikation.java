@@ -29,8 +29,8 @@ public class Applikation extends Funktionalitet  {
 		while(tastatur.hasNext()){
 			if(valg.equals("10")){
 				System.out.println("Enter password.");
-				String password = tastatur.nextLine();
-				if(password.equals("1234")){
+				valg = tastatur.nextLine();
+				if(valg.equals("1234")){
 					funktion.adminLogin = true;
 					System.out.println("____________________________________________");
 					System.out.println();
@@ -62,5 +62,4 @@ public class Applikation extends Funktionalitet  {
 			}
 		}
 	}
-
 }
