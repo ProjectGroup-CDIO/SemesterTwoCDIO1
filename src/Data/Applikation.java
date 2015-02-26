@@ -88,9 +88,7 @@ public class Applikation extends Funktionalitet  {
 					}
 					if(valg.equals("4")){
 						System.out.println(funktion.getOperatoer(ID).password);
-					}
-					if(valg.equals("5")){
-						System.out.println(funktion.getOperatoer(ID).);
+					
 					}
 				}
 				else if(valg.equals("5")){
