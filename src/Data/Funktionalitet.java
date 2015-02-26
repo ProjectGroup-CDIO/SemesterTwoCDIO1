@@ -7,7 +7,7 @@ import Data.IOperatoerDAO.DALException;
 public class Funktionalitet implements IFunktionalitet {
 
 	IOperatoerDAO OPdata = new OperatoerDAO();
-	
+	UserCommandLog Log = new UserCommandLog();
 	
 	boolean ADMIN = true;
 	int Vaegt;
@@ -128,5 +128,11 @@ public class Funktionalitet implements IFunktionalitet {
 	public boolean adminState() {
 		
 		return ADMIN;
+	}
+
+	@Override
+	public double weightCalc(double Netto, double Tara, String id) {
+		Log.UpdateLog("Afvejning:Netto: "+Netto +" Tara: "+Tara, id);
+		return Netto + Tara;
 	}
 }
