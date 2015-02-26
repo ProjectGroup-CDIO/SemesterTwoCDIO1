@@ -12,7 +12,8 @@ public class Funktionalitet implements IFunktionalitet {
 	int Tara;
 	int Brutto = Vaegt+Tara;
 	public boolean adminLogin;
-
+	
+	
 	@Override
 	public void createOperator(OperatoerDTO opr) throws DALException {
 		try {
