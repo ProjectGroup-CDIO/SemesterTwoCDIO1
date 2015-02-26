@@ -88,17 +88,18 @@ public class Applikation extends Funktionalitet  {
 					}
 					if(valg.equals("4")){
 						System.out.println(funktion.getOperatoer(ID).password);
-					
 					}
-				}
-				else if(valg.equals("5")){
-					System.out.println("Goodbye admin.");
-				}
-
-
+				
+					if(valg.equals("5")){
+					System.out.println("Choose name for Operator.");
+					}
+				else if(valg.equals("6")){
+						System.out.println("Goodbye admin.");
+					}
 			}
 		}
 	}
+}
 }
 
 
