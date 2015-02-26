@@ -1,4 +1,6 @@
 package Data;
+import java.io.ObjectInputStream.GetField;
+
 import Data.IOperatoerDAO.DALException;
 
 /*
@@ -50,7 +52,11 @@ public class Applikation extends Funktionalitet  {
 					System.out.println(funktion.OPdata.getOperatoerList());
 				}
 				else if(valg.equals("2")){
-					//Implement deletion of operators
+					System.out.println("Please enter the oprID for the operator you want to delete.");
+					valg = tastatur.nextLine();	
+					funktion.deleteOperator(funktion.getOperatoer(Integer.parseInt(valg)));
+						
+					}
 				}
 				else if(valg.equals("3")){
 					//Implement update operator(s)
@@ -62,4 +68,4 @@ public class Applikation extends Funktionalitet  {
 			}
 		}
 	}
-}
+
