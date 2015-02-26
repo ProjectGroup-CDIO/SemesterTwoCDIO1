@@ -15,8 +15,8 @@ public class Applikation extends Funktionalitet  {
 
 		Funktionalitet funktion = new Funktionalitet();
 		java.util.Scanner tastatur = new java.util.Scanner(System.in);
-		
-		
+
+
 		System.out.println("______________________________________");
 		System.out.println();
 		System.out.println("Pick admin or operator");
@@ -25,14 +25,14 @@ public class Applikation extends Funktionalitet  {
 		System.out.println();
 		System.out.println("Exit program, enter 20");
 		String valg = tastatur.nextLine();	
-	
+
 		while(tastatur.hasNext()){
 			if(valg.equals("10")){
 				System.out.println("Enter password.");
 				String password = tastatur.nextLine();
 				if(password.equals("1234")){
 					funktion.adminLogin = true;
-					System.out.println("____________________________");
+					System.out.println("____________________________________________");
 					System.out.println();
 					System.out.println("Welcome back, admin! What do you want to do?");
 					System.out.println();
@@ -41,30 +41,26 @@ public class Applikation extends Funktionalitet  {
 					System.out.println("Update operator, press 3");
 					System.out.println();
 					System.out.println("Logout, press 4");
-					valg = tastatur.nextLine();	
-
+					valg = tastatur.nextLine();		
 				}
-					if(valg.equals("1")){
-							System.out.println(funktion.OPdata.getOperatoerList());
-					}
-					else if(valg.equals("2")){
-							//Implement deletion of operators
-					}
-					else if(valg.equals("3")){
-							//Implement update operator(s)
-					}
-					else if(valg.equals("4")){
-						funktion.adminLogin = false;
-						System.exit(0);
-					}
-					else if(password != "1234"){
-						funktion.adminLogin = false;
-						System.out.println("Password was wrong!");
-					}
+				else{
+					System.out.println("Wrong password, try again.");
+				}
+				if(valg.equals("1")){
+					System.out.println(funktion.OPdata.getOperatoerList());
+				}
+				else if(valg.equals("2")){
+					//Implement deletion of operators
+				}
+				else if(valg.equals("3")){
+					//Implement update operator(s)
+				}
+				else if(valg.equals("4")){
+					funktion.adminLogin = false;
+					System.exit(0);
 				}
 			}
-
-
+		}
 	}
 
 }
