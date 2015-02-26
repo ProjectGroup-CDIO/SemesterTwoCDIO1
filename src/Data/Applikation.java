@@ -26,13 +26,15 @@ public class Applikation extends Funktionalitet  {
 		System.out.println("For operator, enter 11");
 		System.out.println();
 		System.out.println("Exit program, enter 20");
-		String valg = tastatur.nextLine();	
 
 		while(tastatur.hasNext()){
+
+			String valg = tastatur.nextLine();	
+
 			if(valg.equals("10")){
 				System.out.println("Enter password.");
 				valg = tastatur.nextLine();
-				if(valg.equals("1234")){
+				if(valg.equals("02324it")){
 					funktion.adminLogin = true;
 					System.out.println("____________________________________________");
 					System.out.println();
@@ -53,19 +55,22 @@ public class Applikation extends Funktionalitet  {
 				}
 				else if(valg.equals("2")){
 					System.out.println("Please enter the oprID for the operator you want to delete.");
-					valg = tastatur.nextLine();	
 					funktion.deleteOperator(funktion.getOperatoer(Integer.parseInt(valg)));
-						
-					}
 				}
 				else if(valg.equals("3")){
-					//Implement update operator(s)
+					System.out.println("Please enter the oprID for the operator you want to update.");
+					funktion.updateOperator(funktion.getOperatoer(Integer.parseInt(valg)));
 				}
 				else if(valg.equals("4")){
+					System.out.println("Goodbye admin.");
 					funktion.adminLogin = false;
-					System.exit(0);
 				}
+
+
 			}
 		}
 	}
+}
+
+
 

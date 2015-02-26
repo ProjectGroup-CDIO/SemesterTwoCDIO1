@@ -13,7 +13,6 @@ public class Funktionalitet implements IFunktionalitet {
 	int Brutto = Vaegt+Tara;
 	public boolean adminLogin;
 
-
 	@Override
 	public void createOperator(OperatoerDTO opr) throws DALException {
 		try {
@@ -36,13 +35,7 @@ public class Funktionalitet implements IFunktionalitet {
 	}
 	
 	public void adminLogin(String password){
-		if("1234".equals(password)){
-			adminLogin = true;
-			System.out.println("Admin activated.");
-		} else{
-			adminLogin = false;
-			System.out.println("Admin deactivated.");
-		}
+		
 	}
 	
 	@Override
