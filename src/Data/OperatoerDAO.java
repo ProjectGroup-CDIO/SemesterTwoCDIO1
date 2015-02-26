@@ -7,7 +7,6 @@ import java.util.List;
 
 public class OperatoerDAO implements IOperatoerDAO {
 
-	int id;
 	private class Operatoer{
 		int oprId;                     
 		String oprNavn;                
@@ -82,7 +81,7 @@ public class OperatoerDAO implements IOperatoerDAO {
 	@Override
 	public void updateOperatoer(OperatoerDTO opr) throws DALException {
 		for(int i = 0; i< DATAList.size();i++){
-			if(id == DATAList.get(i).oprId){
+			if(opr.oprId == DATAList.get(i).oprId){
 				DATAList.get(i).ini = opr.ini;
 				DATAList.get(i).oprNavn = opr.oprNavn;
 				DATAList.get(i).password = opr.password;
