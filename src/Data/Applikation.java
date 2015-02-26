@@ -17,22 +17,20 @@ public class Applikation extends Funktionalitet  {
 		java.util.Scanner tastatur = new java.util.Scanner(System.in);
 		
 		
-		
-		while(true){
-			System.out.println("______________________________________");
-			System.out.println();
-			System.out.println("Pick admin or operator");
-			System.out.println("For admin, enter 10");
-			System.out.println("For operator, enter 11");
-			System.out.println();
-			System.out.println("Exit program, enter 20");
-			int valg = tastatur.nextInt();	
-			tastatur.nextLine();
-			
-			if(valg == 10){
+		System.out.println("______________________________________");
+		System.out.println();
+		System.out.println("Pick admin or operator");
+		System.out.println("For admin, enter 10");
+		System.out.println("For operator, enter 11");
+		System.out.println();
+		System.out.println("Exit program, enter 20");
+		String valg = tastatur.nextLine();	
+	
+		while(tastatur.hasNext()){
+			if(valg.equals("10")){
 				System.out.println("Enter password.");
-				int password = tastatur.nextInt();
-				if(password == 1234){
+				String password = tastatur.nextLine();
+				if(password.equals("1234")){
 					funktion.adminLogin = true;
 					System.out.println("____________________________");
 					System.out.println();
@@ -43,26 +41,25 @@ public class Applikation extends Funktionalitet  {
 					System.out.println("Update operator, press 3");
 					System.out.println();
 					System.out.println("Logout, press 4");
-//					int valg2 = tastatur.nextInt();
-//					tastatur.nextLine();
+					valg = tastatur.nextLine();	
+
 				}
-					else if(password != 1234){
-						funktion.adminLogin = false;
-						System.out.println("Password was wrong!");
-					}
-					
-					if(valg == 1){
+					if(valg.equals("1")){
 							System.out.println(funktion.OPdata.getOperatoerList());
 					}
-					else if(valg == 2){
+					else if(valg.equals("2")){
 							//Implement deletion of operators
 					}
-					else if(valg == 3){
+					else if(valg.equals("3")){
 							//Implement update operator(s)
 					}
-					else if(valg == 4){
+					else if(valg.equals("4")){
 						funktion.adminLogin = false;
 						System.exit(0);
+					}
+					else if(password != "1234"){
+						funktion.adminLogin = false;
+						System.out.println("Password was wrong!");
 					}
 				}
 			}
