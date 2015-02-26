@@ -118,7 +118,7 @@ public class Funktionalitet implements IFunktionalitet {
 
 	}
 	
-	//Just something initially made - does not have to look like this.
+	//Just something initially made - should not look like this.
 	public boolean isAdmin(){
 
 		ADMIN = true;

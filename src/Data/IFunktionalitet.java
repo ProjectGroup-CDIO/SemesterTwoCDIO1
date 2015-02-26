@@ -12,6 +12,6 @@ public interface IFunktionalitet {
 	OperatoerDTO getOperatoer(int oprId)throws DALException;
 	public void updateOperator(OperatoerDTO opr)throws DALException;
 	public List<OperatoerDTO> ShowOperators()throws DALException;
-	
+	public boolean isAdmin();
 
 }
