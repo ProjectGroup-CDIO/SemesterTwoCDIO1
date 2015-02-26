@@ -9,7 +9,7 @@ public class Funktionalitet implements IFunktionalitet {
 	IOperatoerDAO OPdata = new OperatoerDAO();
 	
 	
-	boolean ADMIN = false;
+	boolean ADMIN = true;
 	int Vaegt;
 	int Tara;
 	int Brutto = Vaegt+Tara;
@@ -17,7 +17,7 @@ public class Funktionalitet implements IFunktionalitet {
 	
 	@Override
 	public void createOperator(OperatoerDTO opr) throws DALException {
-		if(isAdmin()) {
+		if(ADMIN) {
 		try {
 			OPdata.createOperatoer(opr);
 
@@ -46,7 +46,7 @@ public class Funktionalitet implements IFunktionalitet {
 	
 	@Override
 	public void deleteOperator(OperatoerDTO opr) throws DALException {
-		if(isAdmin()) {
+		if(ADMIN) {
 			OPdata.deleteOperatoer(opr);
 		}
 		/*
@@ -64,7 +64,7 @@ public class Funktionalitet implements IFunktionalitet {
 	}
 	@Override
 	public void updateOperator(OperatoerDTO opr) throws DALException {
-		if(isAdmin()) {
+		if(ADMIN) {
 			OPdata.updateOperatoer(opr);
 
 			/*
@@ -95,7 +95,7 @@ public class Funktionalitet implements IFunktionalitet {
 	}
 	@Override
 	public List<OperatoerDTO> ShowOperators() throws DALException {
-		if(isAdmin()) {
+		if(ADMIN) {
 			System.out.println();
 			return OPdata.getOperatoerList();	
 		}else{
@@ -107,21 +107,26 @@ public class Funktionalitet implements IFunktionalitet {
 	}
 	@Override
 	public OperatoerDTO getOperatoer(int oprId) throws DALException {
-		if(isAdmin()){
+		if(ADMIN){
+			System.out.println("GetOP Admin acces succes");
 			return	OPdata.getOperatoer(oprId);
 		}else{
 			System.out.println("Faliue to getOperatoer - not admin");
 		}
-		System.out.println("Get operatoer from id: " + oprId + "failed");
+		System.out.println("Get operatoer from id: " + oprId + " failed");
 		return null;
 
 	}
 	
 	//Just something initially made - should not look like this.
-	public boolean isAdmin(){
+	public void isAdmin(boolean AdminActive){
 
-		ADMIN = true;
+		ADMIN = AdminActive;
+	}
 
+	@Override
+	public boolean adminState() {
+		
 		return ADMIN;
 	}
 }

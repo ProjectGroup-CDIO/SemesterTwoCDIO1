@@ -12,30 +12,71 @@ import java.util.Scanner;
  * 
  */
 public class Applikation extends Funktionalitet  {
-
-	public static void main(String[] args) throws DALException {
-		// TODO Auto-generated method stub
-
-		IFunktionalitet funktion = new Funktionalitet();
-		Scanner tastatur = new java.util.Scanner(System.in);
-		UserCommandLog UpdateData = new UserCommandLog();
-
+	
+	IFunktionalitet funktion = new Funktionalitet();
+	Scanner tastatur = new java.util.Scanner(System.in);
+	UserCommandLog UpdateData = new UserCommandLog();
+	
+	public void App() throws DALException {
 		System.out.println("______________________________________");
 		System.out.println();
-		System.out.println("Pick admin or operator");
-		System.out.println("For admin, enter 10");
-		System.out.println("For operator, enter 11");
-		System.out.println();
+		System.out.println("Indtast bruger ID og derefter password");
+		System.out.println("");
 		System.out.println("Exit program, enter 20");
 
+		ProgramRestart();
+	}
+	
+
+
+	private void ProgramRestart() throws DALException{
+		System.out.println("Indtast bruger ID");
 		while(tastatur.hasNext()){
 
-			String valg = tastatur.nextLine();
+			String BrugerId = tastatur.nextLine();
+			System.out.println("Indtast password");
+			String BrugerPass = tastatur.nextLine();
+			if(BrugerPass.equals(funktion.getOperatoer(Integer.parseInt(BrugerId)).password)){
+				System.out.println("Acces Granted");
+				System.out.println("Mulgiheder: 1,2,3,4,5");
+				System.out.println("skrive 1,2,3,4 eller 5");
+				String valg  = tastatur.nextLine();
+				
+				if(Integer.parseInt(BrugerId) < 11){
+					funktion.isAdmin(true);
+					System.out.println("Admin set succes");
+				}else{
+					funktion.isAdmin(false);
+				}
+				
+				if(funktion.adminState()){
+				//logged in as admin.
+					System.out.println("________________________________________");
+					System.out.println(" Welcome back, admin! What do you want to do");
+					System.out.println("List of operators, press 1");
+					System.out.println("Delete operator(s), press 2");
+					System.out.println("Update operator, press 3");
+					System.out.println("Show operatoer, press 4");
+					System.out.println("Logout, press 5");
+					valg = tastatur.nextLine();
+					keyboardOutput(valg);
+					
+				}else{
+				//Not admin	
+				}
+				
+				
+			}else{
+				System.out.println("Acces denied - wrong password");
+			}
+			/*
+			
 
 			if(valg.equals("10")){
 				System.out.println("Enter password.");
 				valg = tastatur.nextLine();
-				if(valg.equals("02324it")){
+				if(valg.equals(funktion.getOperatoer(10).password)){
+
 					funktion.isAdmin();
 					System.out.println("____________________________________________");
 					System.out.println();
@@ -96,9 +137,44 @@ public class Applikation extends Funktionalitet  {
 
 
 			}
+			*/
 		}
+		
 	}
+	private void keyboardOutput(String valg) throws DALException {
+		switch(valg){
+		
+		case "1":
+			System.out.println(funktion.ShowOperators());
+		case "2":
+			System.out.println("Write ID of person to be deleted");
+			String valg2 = tastatur.nextLine();
+			funktion.deleteOperator(funktion.getOperatoer(Integer.parseInt(valg2)));
+		case "3":
+			System.out.println("Please enter the oprID for the operator you want to update.");
+			String oprId = tastatur.nextLine();
+			String name = tastatur.nextLine();
+			String ini = tastatur.nextLine();
+			String cpr = tastatur.nextLine();
+			String pass = tastatur.nextLine();
+			
+			try{
+			funktion.updateOperator(new OperatoerDTO(Integer.parseInt(oprId), name, ini, cpr, pass)); 
+			}catch(NumberFormatException e){
+				System.out.println("You wrote a non valid integer - please write one between 11 - 99");
+			}
+			
+			
+			
+		case "4":
+			
+		case "5":
+		
+		}		
+	}
+
 }
+
 
 
 
