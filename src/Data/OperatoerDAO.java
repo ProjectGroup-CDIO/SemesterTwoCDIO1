@@ -91,4 +91,16 @@ public class OperatoerDAO implements IOperatoerDAO {
 
 	}
 
+
+	@Override
+	public void deleteOperatoer(OperatoerDTO opr) throws DALException {
+		for(int i = 0; i< DATAList.size();i++){
+			if(opr.oprId == DATAList.get(i).oprId){
+				DATAList.remove(i);
+			}
+
+		}
+
+	}
+
 }
