@@ -44,8 +44,8 @@ public class Applikation extends Funktionalitet  {
 					System.out.println("Delete operator(s), press 2");
 					System.out.println("Update operator, press 3");
 					System.out.println("Show operatoer, press 4");
-					System.out.println();
-					System.out.println("Logout, press 5");
+					System.out.println("Create Operator, press 5");
+					System.out.println("Logout, press 6");
 					valg = tastatur.nextLine();		
 				}
 				else{
@@ -87,6 +87,9 @@ public class Applikation extends Funktionalitet  {
 					}
 					if(valg.equals("4")){
 						System.out.println(funktion.getOperatoer(ID).password);
+					}
+					if(valg.equals("5")){
+						System.out.println(funktion.getOperatoer(ID).);
 					}
 				}
 					else if(valg.equals("5")){
