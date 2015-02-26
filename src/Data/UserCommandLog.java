@@ -15,7 +15,7 @@ public class UserCommandLog {
 		Calendar cal = Calendar.getInstance();
     	cal.getTime();
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-		    try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("myfile.txt", true)))) {
+		    try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("LogFile.txt", true)))) {
 			    out.println("Bruger " + "Kommando der er brugt "  + sdf.format(cal.getTime()));
 			}catch (IOException e) {
 			    //exception handling left as an exercise for the reader
