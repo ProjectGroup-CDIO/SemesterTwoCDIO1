@@ -35,7 +35,7 @@ public class Applikation extends Funktionalitet  {
 				System.out.println("Enter password.");
 				valg = tastatur.nextLine();
 				if(valg.equals("02324it")){
-					funktion.adminLogin = true;
+					funktion.isAdmin();
 					System.out.println("____________________________________________");
 					System.out.println();
 					System.out.println("Welcome back, admin! What do you want to do?");
@@ -70,6 +70,7 @@ public class Applikation extends Funktionalitet  {
 					System.out.println();
 					System.out.println("Welcome back, admin! What do you want to do?");
 					System.out.println();
+					System.out.println("Showing information for " + funktion.getOperatoer(ID));
 					System.out.println("Press 1 for Name");
 					System.out.println("Press 2 for initials");
 					System.out.println("Press 3 for social number");
@@ -90,7 +91,6 @@ public class Applikation extends Funktionalitet  {
 				}
 					else if(valg.equals("5")){
 					System.out.println("Goodbye admin.");
-					funktion.adminLogin = false;
 				}
 
 
