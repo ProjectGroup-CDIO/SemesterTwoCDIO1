@@ -2,6 +2,8 @@ package Data;
 
 import java.util.List;
 
+import Data.IOperatoerDAO.DALException;
+
 public interface IOperatoerDAO {
 	OperatoerDTO getOperatoer(int oprId) throws DALException;
 	List<OperatoerDTO> getOperatoerList() throws DALException;
@@ -14,4 +16,6 @@ public interface IOperatoerDAO {
 			super("Data Access Error");
 		}
 	}
+
+
 }

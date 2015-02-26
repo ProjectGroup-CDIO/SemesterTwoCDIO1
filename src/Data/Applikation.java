@@ -61,11 +61,12 @@ public class Applikation extends Funktionalitet  {
 					System.out.println("Show operator, press 4");
 					System.out.println("Create operator, press 5");
 					System.out.println("Logout, press 6");
+
 					valg = tastatur.nextLine();
 					adminOptions(valg);
 
 				}else{
-					
+
 					System.out.println("____________________________________________");
 					System.out.println();
 					System.out.println("Welcome back, Operatoer! What do you want to do?");
@@ -74,56 +75,55 @@ public class Applikation extends Funktionalitet  {
 					System.out.println("CPR: " + funktion.getOperatoer(Integer.parseInt(brugerId)).cpr);
 					System.out.println("Ini: "+ funktion.getOperatoer(Integer.parseInt(brugerId)).ini);
 					System.out.println("Password" + funktion.getOperatoer(Integer.parseInt(brugerId)).password);
-					
+
 					System.out.println("These are your options:");
 					System.out.println("Change password, press 1");
 					System.out.println("Use the weight, press 2");
 					valg = tastatur.nextLine();
 					oprOptions(valg,brugerId);
-					
+
 				}
-
-
 			}else{
 				System.out.println("Acces denied - wrong password");
+
 			}
 
 		}
 
 	}
-	
+
 	private void oprOptions(String valg, String brugerId) throws DALException {
 		int id = Integer.parseInt(brugerId);
-	switch(valg){
-	case "1":
-		System.out.println("You wish to change your password, please enter your new password");
-		String valg2 = tastatur.nextLine();
-		
-		System.out.println("Please enter the oprID for the operator you want to change)");
-		String oprId = tastatur.nextLine();
-		try{
-		funktion.updateOperator(new OperatoerDTO(id, funktion.getOperatoer(id).oprNavn, funktion.getOperatoer(id).ini, funktion.getOperatoer(id).cpr, funktion.getOperatoer(id).password)); 
-		}catch(NumberFormatException e){
-		System.out.println("You wrote a non valid integer - please write one between 11 - 99");
-		oprOptions("1", brugerId);
+		switch(valg){
+		case "1":
+			System.out.println("You wish to change your password, please enter your new password");
+			String valg2 = tastatur.nextLine();
+
+			System.out.println("Please enter the oprID for the operator you want to change)");
+			String oprId = tastatur.nextLine();
+			try{
+				funktion.updateOperator(new OperatoerDTO(id, funktion.getOperatoer(id).oprNavn, funktion.getOperatoer(id).ini, funktion.getOperatoer(id).cpr, funktion.getOperatoer(id).password)); 
+			}catch(NumberFormatException e){
+				System.out.println("You wrote a non valid integer - please write one between 11 - 99");
+				oprOptions("1", brugerId);
+			}
+
+		case "2":
+			System.out.println("To use the weight(note this will be logged):");
+			System.out.println("Please enter your tara:");
+			String tara = tastatur.nextLine();
+			System.out.println("Please enter the netto:");
+			String netto = tastatur.nextLine();
+			try{
+				System.out.println(funktion.weightCalc(Double.parseDouble(netto), Double.parseDouble(tara), brugerId));
+			}catch(NumberFormatException e){
+				System.out.println("You wrote a non valid double! - please write two correctly!");
+				oprOptions("2", brugerId);
+
+			}
+
 		}
 
-	case "2":
-		System.out.println("To use the weight(note this will be logged):");
-		System.out.println("Please enter your tara:");
-		String tara = tastatur.nextLine();
-		System.out.println("Please enter the netto:");
-		String netto = tastatur.nextLine();
-		try{
-		System.out.println(funktion.weightCalc(Double.parseDouble(netto), Double.parseDouble(tara), brugerId));
-		}catch(NumberFormatException e){
-			System.out.println("You wrote a non valid double! - please write two correctly!");
-			oprOptions("2", brugerId);
-			
-		}
-		
-	}
-		
 	}
 
 
@@ -191,6 +191,7 @@ public class Applikation extends Funktionalitet  {
 	}
 
 }
+
 
 
 

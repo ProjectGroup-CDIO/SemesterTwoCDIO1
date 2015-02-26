@@ -24,10 +24,9 @@ public class OperatoerDAO implements IOperatoerDAO {
 
 		}
 	}
+		
 
-	/*
-	 * This is the data that we use.
-	 */
+
 	private ArrayList<Operatoer> DATAList;
 	public OperatoerDAO(){
 
@@ -40,9 +39,8 @@ public class OperatoerDAO implements IOperatoerDAO {
 		DATAList.add(new Operatoer(13,"Peder Person","PePe","111111-2222","123"));
 		DATAList.add(new Operatoer(14,"Test Testason","Tete","222222-3333","123"));
 
-
+		
 	}
-
 
 	@Override
 	public OperatoerDTO getOperatoer(int oprId) throws DALException {
@@ -72,8 +70,6 @@ public class OperatoerDAO implements IOperatoerDAO {
 		}else{
 			System.out.println("Id > 99 so no user created.");
 		}
-		
-
 	}
 	/*
 	 * (non-Javadoc)
@@ -105,12 +101,8 @@ public class OperatoerDAO implements IOperatoerDAO {
 
 
 	}
-	/*
-	 * (non-Javadoc)
-	 * @see Data.IOperatoerDAO#deleteOperatoer(Data.OperatoerDTO)
-	 * This method removes a opr that matches with a opr in the DATAlist, it uses the
-	 * opr.oprId to find someone that matches with a id from datalist
-	 */
+
+
 	@Override
 	public void deleteOperatoer(OperatoerDTO opr) throws DALException {
 		for(int i = 0; i< DATAList.size();i++){
