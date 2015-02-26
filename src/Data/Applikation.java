@@ -12,11 +12,11 @@ import java.util.Scanner;
  * 
  */
 public class Applikation extends Funktionalitet  {
-	
+
 	IFunktionalitet funktion = new Funktionalitet();
 	Scanner tastatur = new java.util.Scanner(System.in);
 	UserCommandLog UpdateData = new UserCommandLog();
-	
+
 	public void App() throws DALException {
 		System.out.println("______________________________________");
 		System.out.println();
@@ -26,7 +26,7 @@ public class Applikation extends Funktionalitet  {
 
 		ProgramRestart();
 	}
-	
+
 
 
 	private void ProgramRestart() throws DALException{
@@ -40,8 +40,8 @@ public class Applikation extends Funktionalitet  {
 				System.out.println("Acces Granted");
 				System.out.println("Mulgiheder: 1,2,3,4,5");
 				System.out.println("skrive 1,2,3,4 eller 5");
-				
-				
+
+
 				if(Integer.parseInt(BrugerId) < 11){
 					funktion.isAdmin(true);
 					System.out.println("Admin set succes");
@@ -49,29 +49,31 @@ public class Applikation extends Funktionalitet  {
 					funktion.isAdmin(false);
 				}
 				String valg  = tastatur.nextLine();
+
 				if(funktion.adminState()){
-				//logged in as admin.
-					
+					//logged in as admin.
+
 					System.out.println("________________________________________");
 					System.out.println(" Welcome back, admin! What do you want to do");
 					System.out.println("List of operators, press 1");
-					System.out.println("Delete operator(s), press 2");
+					System.out.println("Delete operator, press 2");
 					System.out.println("Update operator, press 3");
-					System.out.println("Show operatoer, press 4");
-					System.out.println("Logout, press 5");
+					System.out.println("Show operator, press 4");
+					System.out.println("Create operator, press 5");
+					System.out.println("Logout, press 6");
 					valg = tastatur.nextLine();
 					keyboardOutput(valg);
-					
+
 				}else{
-				//Not admin	
+					//Not admin	
 				}
-				
-				
+
+
 			}else{
 				System.out.println("Acces denied - wrong password");
 			}
 			/*
-			
+
 
 			if(valg.equals("10")){
 				System.out.println("Enter password.");
@@ -138,13 +140,13 @@ public class Applikation extends Funktionalitet  {
 
 
 			}
-			*/
+			 */
 		}
-		
+
 	}
 	private void keyboardOutput(String valg) throws DALException {
 		switch(valg){
-		
+
 		case "1":
 			System.out.println(funktion.ShowOperators());
 		case "2":
@@ -152,7 +154,7 @@ public class Applikation extends Funktionalitet  {
 			String valg2 = tastatur.nextLine();
 			funktion.deleteOperator(funktion.getOperatoer(Integer.parseInt(valg2)));
 		case "3":
-			System.out.println("Please enter the oprID for the operator you want to update. NULL is interpreted as do not change(remember it has to be capital!)");
+			System.out.println("Please enter the oprID for the operator you want to change)");
 			String oprId = tastatur.nextLine();
 			System.out.println("Please enter the Name for the operator you want to update.NULL is interpreted as do not change(remember it has to be capital!)");
 			String name = tastatur.nextLine();
@@ -162,20 +164,26 @@ public class Applikation extends Funktionalitet  {
 			String cpr = tastatur.nextLine();
 			System.out.println("Please enter the password for the operator you want to update.NULL is interpreted as do not change(remember it has to be capital!)");
 			String pass = tastatur.nextLine();
-			
+
 			try{
-			funktion.updateOperator(new OperatoerDTO(Integer.parseInt(oprId), name, ini, cpr, pass)); 
+				funktion.updateOperator(new OperatoerDTO(Integer.parseInt(oprId), name, ini, cpr, pass)); 
 			}catch(NumberFormatException e){
 				System.out.println("You wrote a non valid integer - please write one between 11 - 99");
 				keyboardOutput("3");
 			}
-			
-			
-			
 		case "4":
-			
+			System.out.println("Write the ID of the operator which you wish to look at");
+			String IdInput = tastatur.nextLine();
+			try{
+				funktion.getOperatoer(Integer.parseInt(IdInput));
+			}catch(NumberFormatException e){
+				System.out.println("You wrote a non valid integer - please write one between 11 - 99");
+				keyboardOutput("4");
+			}
 		case "5":
-		
+
+		case "6":
+
 		}		
 	}
 
