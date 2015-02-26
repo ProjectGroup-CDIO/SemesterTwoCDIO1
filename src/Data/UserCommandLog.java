@@ -21,6 +21,7 @@ public class UserCommandLog {
 		  // report
 		} finally {
 		   try {writer.close();} catch (Exception ex) {}
-		}
+		}	
 	}
 }
+// asdf
