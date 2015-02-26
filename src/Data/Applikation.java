@@ -181,6 +181,23 @@ public class Applikation extends Funktionalitet  {
 				keyboardOutput("4");
 			}
 		case "5":
+			System.out.println("Creating is done by following these steps: Write the operatoer's ID nr - between 11-99");
+			oprId = tastatur.nextLine();
+			System.out.println("Please enter the Name for the operator you want to update.NULL is interpreted as do not change(remember it has to be capital!)");
+			name = tastatur.nextLine();
+			System.out.println("Please enter the ini for the operator you want to update.NULL is interpreted as do not change(remember it has to be capital!)");
+			ini = tastatur.nextLine();
+			System.out.println("Please enter the cpr for the operator you want to update.NULL is interpreted as do not change(remember it has to be capital!)");
+			cpr = tastatur.nextLine();
+			System.out.println("Please enter the password for the operator you want to update.NULL is interpreted as do not change(remember it has to be capital!)");
+			pass = tastatur.nextLine();
+
+			try{
+				funktion.createOperator(new OperatoerDTO(Integer.parseInt(oprId), name, ini, cpr, pass)); 
+			}catch(NumberFormatException e){
+				System.out.println("You wrote a non valid integer - please write one between 11 - 99");
+				keyboardOutput("5");
+			}
 
 		case "6":
 
