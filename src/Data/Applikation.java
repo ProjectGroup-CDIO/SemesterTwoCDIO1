@@ -77,7 +77,9 @@ public class Applikation extends Funktionalitet  {
 
 						System.out.println("These are your options:");
 						System.out.println("Change password, press 1");
-						System.out.println("Use the weight, press 2");
+						System.out.println("To use the weight, press 2");
+						System.out.println("To log out, press 3");
+
 						valg = tastatur.nextLine();
 						oprOptions(valg,brugerId);
 
@@ -126,6 +128,10 @@ public class Applikation extends Funktionalitet  {
 				System.out.println("You wrote a non valid double! - please write two correctly!");
 				oprOptions("2", brugerId);
 			}
+			break;
+		case "3":
+			System.out.println("You are now logged out - please follow the steps to login again");
+			ProgramRestart();
 			break;
 		}
 
