@@ -69,7 +69,6 @@ public class Applikation extends Funktionalitet  {
 					adminOptions(valg);
 
 				}else{
-					System.out.println("Not Admin");
 					System.out.println("____________________________________________");
 					System.out.println();
 					System.out.println("Welcome back, Operatoer! What do you want to do?");
