@@ -31,11 +31,16 @@ public class Applikation extends Funktionalitet  {
 
 	private void ProgramRestart() throws DALException{
 		System.out.println("Enter user-ID");
+		System.out.println("To exit the program write exit");
 		while(tastatur.hasNext()){
 			String brugerId = tastatur.nextLine();
+			if(brugerId.toLowerCase().contains("exit")){
+				System.exit(1);
+			}
 			System.out.println("Enter password");
 			String BrugerPass = tastatur.nextLine();
-
+			
+			
 			if(BrugerPass.equals(funktion.getOperatoer(Integer.parseInt(brugerId)).password)){
 				System.out.println("Access granted");
 				while(true){
