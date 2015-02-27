@@ -24,8 +24,6 @@ public class Applikation extends Funktionalitet  {
 		System.out.println();
 		System.out.println("Enter user ID followed by a password");
 		System.out.println("");
-		System.out.println("Exit program, enter 20");
-
 		ProgramRestart();
 	}
 
@@ -33,17 +31,21 @@ public class Applikation extends Funktionalitet  {
 
 	private void ProgramRestart() throws DALException{
 		System.out.println("Enter user-ID");
+		System.out.println("To exit the program write exit");
 		while(tastatur.hasNext()){
 			String brugerId = tastatur.nextLine();
+			if(brugerId.toLowerCase().contains("exit")){
+				System.exit(1);
+			}
 			System.out.println("Enter password");
 			String BrugerPass = tastatur.nextLine();
-
+			
+			
 			if(BrugerPass.equals(funktion.getOperatoer(Integer.parseInt(brugerId)).password)){
 				System.out.println("Access granted");
 				while(true){
 					if(Integer.parseInt(brugerId) < 11){
 						funktion.isAdmin(true);
-						//System.out.println("Admin set succes");
 					}else{
 						funktion.isAdmin(false);
 					}
@@ -55,7 +57,6 @@ public class Applikation extends Funktionalitet  {
 					}
 
 					if(funktion.adminState()){
-						//logged in as admin.
 
 						System.out.println("________________________________________");
 						System.out.println(" Welcome back, admin! What do you want to do");
@@ -81,7 +82,9 @@ public class Applikation extends Funktionalitet  {
 
 						System.out.println("These are your options:");
 						System.out.println("Change password, press 1");
-						System.out.println("Use the weight, press 2");
+						System.out.println("To use the weight, press 2");
+						System.out.println("To log out, press 3");
+
 						valg = tastatur.nextLine();
 						oprOptions(valg,brugerId);
 
@@ -100,13 +103,22 @@ public class Applikation extends Funktionalitet  {
 		int id = Integer.parseInt(brugerId);
 		switch(valg){
 		case "1":
-			System.out.println("You wish to change your password, please enter your new password");
-			String valg2 = tastatur.nextLine();
-			try{
-				funktion.updateOperator(new OperatoerDTO(id, "NULL", "NULL", "NULL", valg2)); 
-			}catch(NumberFormatException e){
-				System.out.println("You wrote a non valid integer - please write one between 11 - 99");
-				oprOptions("1", brugerId);
+			System.out.println("You wish to change your password:");
+			System.out.println("Please enter old password");
+			String oldPass = tastatur.nextLine();
+			System.out.println("Please enter your new password:");
+			String newPass1 = tastatur.nextLine();
+			System.out.println("Please confirm your new password by entering it again:");
+			String newPass2 = tastatur.nextLine();
+		
+			
+			if(funktion.getOperatoer(id).password.equals(oldPass)&& newPass1.equals(newPass2)){
+				try{
+					funktion.updateOperator(new OperatoerDTO(id, "NULL", "NULL", "NULL", newPass1)); 
+				}catch(NumberFormatException e){
+					System.out.println("You wrote a non valid integer - please write one between 11 - 99");
+					oprOptions("1", brugerId);
+				}
 			}
 			break;
 		case "2":
@@ -121,6 +133,10 @@ public class Applikation extends Funktionalitet  {
 				System.out.println("You wrote a non valid double! - please write two correctly!");
 				oprOptions("2", brugerId);
 			}
+			break;
+		case "3":
+			System.out.println("You are now logged out - please follow the steps to login again");
+			ProgramRestart();
 			break;
 		}
 

@@ -40,10 +40,6 @@ public class Funktionalitet implements IFunktionalitet {
 		}
 	}
 	
-	public void adminLogin(String password){
-		
-	}
-	
 	@Override
 	public void deleteOperator(OperatoerDTO opr) throws DALException {
 		if(ADMIN) {
