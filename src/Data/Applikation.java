@@ -98,13 +98,24 @@ public class Applikation extends Funktionalitet  {
 		int id = Integer.parseInt(brugerId);
 		switch(valg){
 		case "1":
-			System.out.println("You wish to change your password, please enter your new password");
-			String valg2 = tastatur.nextLine();
-			try{
-				funktion.updateOperator(new OperatoerDTO(id, "NULL", "NULL", "NULL", valg2)); 
-			}catch(NumberFormatException e){
-				System.out.println("You wrote a non valid integer - please write one between 11 - 99");
-				oprOptions("1", brugerId);
+			System.out.println("You wish to change your password:");
+			System.out.println("Please enter old password");
+			String oldPass = tastatur.nextLine();
+			System.out.println("Please enter your new password:");
+			String newPass1 = tastatur.nextLine();
+			System.out.println("Please confirm your new password by entering it again:");
+			String newPass2 = tastatur.nextLine();
+		
+			
+			if(funktion.getOperatoer(id).password.equals(oldPass)&& newPass1.equals(newPass2)){
+				
+				System.out.println("asd");
+				try{
+					funktion.updateOperator(new OperatoerDTO(id, "NULL", "NULL", "NULL", newPass1)); 
+				}catch(NumberFormatException e){
+					System.out.println("You wrote a non valid integer - please write one between 11 - 99");
+					oprOptions("1", brugerId);
+				}
 			}
 			break;
 		case "2":

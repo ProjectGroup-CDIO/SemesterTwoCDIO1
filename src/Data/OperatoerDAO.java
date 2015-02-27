@@ -35,10 +35,10 @@ public class OperatoerDAO implements IOperatoerDAO {
 
 		// ADD POEPLE
 		DATAList.add(new Operatoer(10, "Sysadmin",null,null,"02324it!"));
-		DATAList.add(new Operatoer(11,"Lars Larsen","LaLa","123456-7890","123"));
-		DATAList.add(new Operatoer(12,"Helmut huthut","HeHu","012345-6789","123"));
-		DATAList.add(new Operatoer(13,"Peder Person","PePe","111111-2222","123"));
-		DATAList.add(new Operatoer(14,"Test Testason","Tete","222222-3333","123"));
+		DATAList.add(new Operatoer(11,"Lars Larsen","LaLa","123456-7890","z_Dc2e"));
+		DATAList.add(new Operatoer(12,"Helmut Huthut","HeHu","012345-6789","2Z_fge"));
+		DATAList.add(new Operatoer(13,"Peder Person","PePe","111111-2222","F4_rte"));
+		DATAList.add(new Operatoer(14,"Test Testason","TeTe","222222-3333","2247!aH"));
 
 		
 	}
@@ -95,10 +95,6 @@ public class OperatoerDAO implements IOperatoerDAO {
 				}if(!opr.cpr.equals("NULL")){
 					DATAList.get(i).cpr = opr.cpr;
 				}
-				
-				
-				
-				
 			}
 		}
 
