@@ -20,7 +20,7 @@ public class Applikation extends Funktionalitet  {
 	public void App() throws DALException {
 		System.out.println("______________________________________");
 		System.out.println();
-		System.out.println("Indtast bruger ID og derefter password");
+		System.out.println("Enter user ID followed by a password");
 		System.out.println("");
 		System.out.println("Exit program, enter 20");
 
@@ -30,11 +30,11 @@ public class Applikation extends Funktionalitet  {
 
 
 	private void ProgramRestart() throws DALException{
-		System.out.println("Indtast bruger ID");
+		System.out.println("Enter user-ID");
 		while(tastatur.hasNext()){
 
 			String brugerId = tastatur.nextLine();
-			System.out.println("Indtast password");
+			System.out.println("Enter password");
 			String BrugerPass = tastatur.nextLine();
 			if(BrugerPass.equals(funktion.getOperatoer(Integer.parseInt(brugerId)).password)){
 				System.out.println("Access granted");
@@ -47,7 +47,7 @@ public class Applikation extends Funktionalitet  {
 					funktion.isAdmin(false);
 				}
 				String valg;
-				
+
 				if(Integer.parseInt(brugerId) > 11){
 					int oprId = 11;
 					funktion.getOperatoer(oprId);
