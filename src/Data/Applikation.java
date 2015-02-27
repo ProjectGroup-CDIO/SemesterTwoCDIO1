@@ -22,7 +22,7 @@ public class Applikation extends Funktionalitet  {
 		System.out.println();
 		System.out.println("Enter user ID followed by a password");
 		System.out.println("");
-		System.out.println("Exit program, enter 20");
+
 
 		ProgramRestart();
 	}
