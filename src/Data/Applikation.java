@@ -41,7 +41,6 @@ public class Applikation extends Funktionalitet  {
 				while(true){
 					if(Integer.parseInt(brugerId) < 11){
 						funktion.isAdmin(true);
-						//System.out.println("Admin set succes");
 					}else{
 						funktion.isAdmin(false);
 					}
@@ -53,7 +52,6 @@ public class Applikation extends Funktionalitet  {
 					}
 
 					if(funktion.adminState()){
-						//logged in as admin.
 
 						System.out.println("________________________________________");
 						System.out.println(" Welcome back, admin! What do you want to do");
@@ -108,8 +106,6 @@ public class Applikation extends Funktionalitet  {
 		
 			
 			if(funktion.getOperatoer(id).password.equals(oldPass)&& newPass1.equals(newPass2)){
-				
-				System.out.println("asd");
 				try{
 					funktion.updateOperator(new OperatoerDTO(id, "NULL", "NULL", "NULL", newPass1)); 
 				}catch(NumberFormatException e){
