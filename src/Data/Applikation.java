@@ -3,6 +3,8 @@ import java.io.ObjectInputStream.GetField;
 
 import Data.IOperatoerDAO.DALException;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 /*
  * This is the runable applikation
@@ -130,7 +132,12 @@ public class Applikation extends Funktionalitet  {
 		switch(valg){
 
 		case "1":
-			System.out.println(funktion.ShowOperators());
+			int nrOfOpr = funktion.ShowOperators().size();
+			List<OperatoerDTO> List = funktion.ShowOperators();
+			for (int x = 0; x<nrOfOpr; x++){
+				System.out.println(List.get(x).oprId+", Navn:"+List.get(x).oprNavn+", ini:"+List.get(x).ini+", cpr:"+List.get(x).cpr+", Pass:"+List.get(x).password);
+			}
+			
 			break;
 		case "2":
 			System.out.println("Write ID of person to be deleted");
