@@ -6,7 +6,7 @@ import java.util.List;
 
 
 public class OperatoerDAO implements IOperatoerDAO {
-PasswordGenerator PassGG = new PasswordGenerator();
+
 	
 	private class Operatoer{
 		int oprId;                     
@@ -66,7 +66,7 @@ PasswordGenerator PassGG = new PasswordGenerator();
 
 	@Override
 	public void createOperatoer(OperatoerDTO opr) throws DALException {
-		String password = PassGG.generate();
+		String password = PasswordGenerator.generate();
 		if(opr.oprId < 100){
 			DATAList.add(new Operatoer(opr.oprId,opr.oprNavn,opr.ini,opr.cpr,password));
 			System.out.println("New user created with password: " + password);
