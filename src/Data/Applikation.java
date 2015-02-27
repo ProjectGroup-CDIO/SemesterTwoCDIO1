@@ -37,9 +37,7 @@ public class Applikation extends Funktionalitet  {
 			System.out.println("Indtast password");
 			String BrugerPass = tastatur.nextLine();
 			if(BrugerPass.equals(funktion.getOperatoer(Integer.parseInt(brugerId)).password)){
-				System.out.println("Acces Granted");
-				System.out.println("Mulgiheder: 1,2,3,4,5");
-				System.out.println("skrive 1,2,3,4 eller 5");
+				System.out.println("Access granted");
 
 
 				if(Integer.parseInt(brugerId) < 11){
@@ -48,7 +46,7 @@ public class Applikation extends Funktionalitet  {
 				}else{
 					funktion.isAdmin(false);
 				}
-				String valg  = tastatur.nextLine();
+				String valg;
 
 				if(funktion.adminState()){
 					//logged in as admin.
@@ -84,7 +82,7 @@ public class Applikation extends Funktionalitet  {
 
 				}
 			}else{
-				System.out.println("Acces denied - wrong password");
+				System.out.println("Access denied - wrong password");
 
 			}
 
