@@ -47,6 +47,11 @@ public class Applikation extends Funktionalitet  {
 					funktion.isAdmin(false);
 				}
 				String valg;
+				
+				if(Integer.parseInt(brugerId) > 11){
+					int oprId = 11;
+					funktion.getOperatoer(oprId);
+				}
 
 				if(funktion.adminState()){
 					//logged in as admin.
@@ -64,7 +69,7 @@ public class Applikation extends Funktionalitet  {
 					adminOptions(valg);
 
 				}else{
-
+					System.out.println("Not Admin");
 					System.out.println("____________________________________________");
 					System.out.println();
 					System.out.println("Welcome back, Operatoer! What do you want to do?");
