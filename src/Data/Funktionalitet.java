@@ -89,7 +89,7 @@ public class Funktionalitet implements IFunktionalitet {
 				System.out.println(OPdata.getOperatoer(opr.oprId).cpr + " to be "+ opr.cpr );
 			}
 		}else{
-			System.out.println("Faliure to show the list. - not admin");
+			OPdata.updateOperatoer(opr);
 		}
 
 	}
@@ -107,16 +107,8 @@ public class Funktionalitet implements IFunktionalitet {
 	}
 	@Override
 	public OperatoerDTO getOperatoer(int oprId) throws DALException {
-		if(ADMIN){
-			System.out.println("GetOP Admin acces succes");
 			return	OPdata.getOperatoer(oprId);
-		}else{
-			System.out.println("Faliue to getOperatoer - not admin");
 		}
-		System.out.println("Get operatoer from id: " + oprId + " failed");
-		return null;
-
-	}
 	
 	//Just something initially made - should not look like this.
 	public void isAdmin(boolean AdminActive){
