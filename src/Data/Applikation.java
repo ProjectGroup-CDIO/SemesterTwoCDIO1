@@ -164,7 +164,7 @@ public class Applikation extends Funktionalitet  {
 			System.out.println("Write the ID of the operator which you wish to look at");
 			String IdInput = tastatur.nextLine();
 			try{
-				funktion.getOperatoer(Integer.parseInt(IdInput));
+				System.out.println(funktion.getOperatoer(Integer.parseInt(IdInput)).oprId+", "+funktion.getOperatoer(Integer.parseInt(IdInput)).oprNavn+", "+funktion.getOperatoer(Integer.parseInt(IdInput)).ini+", "+funktion.getOperatoer(Integer.parseInt(IdInput)).cpr+", "+funktion.getOperatoer(Integer.parseInt(IdInput)).password);
 			}catch(NumberFormatException e){
 				System.out.println("You wrote a non valid integer - please write one between 11 - 99");
 				adminOptions("4");
