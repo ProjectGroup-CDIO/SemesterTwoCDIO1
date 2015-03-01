@@ -1,2 +1,3 @@
 OprId: 11 command: Afvejning:Netto: 100.0 Tara: 100.027/02/2015 15:11:46
 OprId: 11 command: Afvejning:Netto: 2.0 Tara: 10.028/02/2015 23:49:16
+OprId: 11 command: Afvejning:Netto: 0.0 Tara: 12.001/03/2015 15:17:42
