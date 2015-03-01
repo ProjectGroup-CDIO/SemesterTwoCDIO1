@@ -17,7 +17,7 @@ public class UserCommandLog {
 		    try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("LogFile.txt", true)))) {
 			    out.println("OprId: " + oprId + " command: "+ command  + sdf.format(cal.getTime()));
 			}catch (IOException e) {
-			    //exception handling left as an exercise for the reader
+			    System.out.println("Exception occured no log created.");
 			
 			}
 	
