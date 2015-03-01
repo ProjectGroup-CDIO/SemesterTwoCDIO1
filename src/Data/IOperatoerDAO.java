@@ -10,6 +10,7 @@ public interface IOperatoerDAO {
 	void deleteOperatoer(OperatoerDTO opr)throws DALException;
 	
 
+	@SuppressWarnings("serial")
 	public class DALException extends Exception {
 		public DALException() {
 			super("Data Access Error");

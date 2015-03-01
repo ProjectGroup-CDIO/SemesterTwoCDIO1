@@ -1,9 +1,6 @@
 package Data;
-import java.io.ObjectInputStream.GetField;
-
 import Data.IOperatoerDAO.DALException;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 /*
