@@ -9,7 +9,7 @@ import java.util.Calendar;
 
 
 public class UserCommandLog {
-	public static void UpdateLog(String command, String oprId){
+	public void UpdateLog(String command, String oprId){
 
 		Calendar cal = Calendar.getInstance();
     	cal.getTime();
