@@ -50,7 +50,7 @@ public class Funktionalitet implements IFunktionalitet {
 		 * a null from the getOperatoer method, if no user is found a null
 		 * is returned.
 		 */
-		if(OPdata.getOperatoer(opr.oprId) == null){
+		if(OPdata.getOperatoer(opr.oprId).oprId != opr.oprId){
 			System.out.println("Succes - opr has been deleted");
 		}else{
 			System.out.println("Faliure - opr was not deleted ");
