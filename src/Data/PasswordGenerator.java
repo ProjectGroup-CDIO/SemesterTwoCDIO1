@@ -13,7 +13,6 @@ public class PasswordGenerator {
 		char[] mycharArray = new char[6];
 		
 		//places the values in an array
-		//Could have been made with loops, but it would take more codespace
 		Random rand = new Random();
 		mycharArray[0]= values1[rand.nextInt(values1.length)];
 		mycharArray[1]= values1[rand.nextInt(values1.length)];
